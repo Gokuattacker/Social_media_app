@@ -96,15 +96,14 @@ const ExplorePage = () => {
           </div>
         </div>
 
-        {/* Trending Posts Card */}
         <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-sm p-6 border border-zinc-200 dark:border-zinc-800">
           <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-6">
-            Trending Posts 🔥
+            Trending Posts
           </h3>
 
           {filteredPosts.length === 0 ? (
             <p className="text-center text-zinc-500 dark:text-zinc-400">
-              No posts found 😢
+              No posts found
             </p>
           ) : (
             <div className="columns-1 sm:columns-2 gap-6 space-y-6">
@@ -143,20 +142,18 @@ const ExplorePage = () => {
                           : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
                       }`}
                     >
-                      <span className="text-lg">
-                        {post.liked ? "❤️" : "🤍"}
-                      </span>
+                      <span className="text-lg">{post.liked ? "" : ""}</span>
                       <span className="font-semibold text-sm">
                         {post.likes}
                       </span>
                     </button>
 
                     <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
-                      💬 <span className="font-semibold">{post.comments}</span>
+                      <span className="font-semibold">{post.comments}</span>
                     </div>
 
                     <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400">
-                      🔗 <span className="font-semibold">{post.shares}</span>
+                      <span className="font-semibold">{post.shares}</span>
                     </div>
                   </div>
                 </div>

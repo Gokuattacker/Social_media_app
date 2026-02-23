@@ -66,11 +66,11 @@ const MessagesPage = () => {
     <div className="w-full h-[calc(100vh-64px)] overflow-hidden bg-zinc-50 dark:bg-zinc-950">
       <div className="w-full h-full flex min-h-0">
         {/* Chat List */}
-        <div className="w-[340px] flex-shrink-0 border-r border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex flex-col min-h-0">
+        <div className="w-85 shrink-0 border-r border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex flex-col min-h-0">
           {/* Header */}
           <div className="p-3 border-b border-zinc-200 dark:border-zinc-800">
             <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-              Messages 💬
+              Messages
             </h2>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
               Your chats
@@ -113,7 +113,7 @@ const MessagesPage = () => {
         {/* Chat Box */}
         <div className="flex-1 flex flex-col bg-white dark:bg-zinc-900 min-h-0">
           {/* Chat Header */}
-          <div className="p-3 border-b border-zinc-200 dark:border-zinc-800 flex items-center gap-3 flex-shrink-0">
+          <div className="p-3 border-b border-zinc-200 dark:border-zinc-800 flex items-center gap-3 shrink-0">
             <div className="w-12 h-12 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-2xl">
               {selectedUser?.avatar}
             </div>
@@ -166,7 +166,7 @@ const MessagesPage = () => {
           </div>
 
           {/* Input Box */}
-          <div className="p-5 border-t border-zinc-200 dark:border-zinc-800 flex items-center gap-3 flex-shrink-0 bg-white dark:bg-zinc-900">
+          <div className="p-5 border-t border-zinc-200 dark:border-zinc-800 flex items-center gap-3 shrink-0 bg-white dark:bg-zinc-900">
             <input
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}

@@ -29,7 +29,7 @@ const Header = () => {
             label="Sign In"
             className="px-4 py-2 text-sm font-semibold rounded-xl border border-zinc-200 text-zinc-800 bg-white hover:bg-zinc-50 dark:border-zinc-800 dark:text-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800"
             outlined
-            onClick={() => router.push("/login")}
+            onClick={() => router.push("/loginPage")}
           />
 
           <Button
