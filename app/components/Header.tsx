@@ -35,7 +35,7 @@ const Header = () => {
           <Button
             label="Get Started"
             className="px-4 py-2 text-sm font-semibold rounded-xl bg-indigo-600 text-white border-none hover:bg-indigo-500"
-            onClick={() => router.push("/signup")}
+            onClick={() => router.push("/signupPage")}
           />
         </div>
       </div>

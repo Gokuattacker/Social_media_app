@@ -2,8 +2,9 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
+import MobileNav from "../components/MobileNav";
 
-export default function FeedLayout({
+export default function MessageLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -13,9 +14,10 @@ export default function FeedLayout({
       <Header />
       <div className="flex">
         <Sidebar />
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 pb-20 lg:pb-0">{children}</div>
       </div>
       <Footer />
+      <MobileNav />
     </div>
   );
 }

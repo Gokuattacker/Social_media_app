@@ -106,7 +106,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-zinc-200 dark:border-zinc-800 pt-8 text-center text-sm">
-          © 2024 SocialConnect. All rights reserved.
+          © 2025 SocialConnect. All rights reserved.
         </div>
       </div>
     </footer>

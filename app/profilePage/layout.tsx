@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
+import MobileNav from "../components/MobileNav";
 
 export default function ProfileLayout({
   children,
@@ -13,11 +14,12 @@ export default function ProfileLayout({
       <Header />
       <div className="flex">
         <Sidebar />
-        <div className="flex-1">
+        <div className="flex-1 pb-20 lg:pb-0">
           {children}
         </div>
       </div>
       <Footer />
+      <MobileNav />
     </div>
   );
 }

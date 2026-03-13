@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import MobileNav from "../components/MobileNav";
 
-export default function NotificationLayout({
+export default function SettingsLayout({
   children,
 }: {
   children: React.ReactNode;
