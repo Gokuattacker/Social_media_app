@@ -101,41 +101,6 @@ const FeedPage = () => {
 
             {/* Center Feed */}
             <div className="lg:col-span-2">
-              {/* Create Post */}
-              <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-sm p-6 mb-6 border border-zinc-200 dark:border-zinc-800">
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-2xl shrink-0 text-white">
-                    {userProfile.avatar}
-                  </div>
-                  <div className="flex-1">
-                    <textarea
-                      value={newPost}
-                      onChange={(e) => setNewPost(e.target.value)}
-                      placeholder="What's on your mind?"
-                      className="w-full p-3 border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-950 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400"
-                      rows="3"
-                    />
-                    <div className="flex justify-between items-center mt-4">
-                      <div className="flex gap-2">
-                        <button className="p-2 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-colors">
-                          📷
-                        </button>
-                        <button className="p-2 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-colors">
-                          🎥
-                        </button>
-                        <button className="p-2 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-xl transition-colors">
-                          😊
-                        </button>
-                      </div>
-                      <Button
-                        label="Post"
-                        className="px-6 py-2 rounded-2xl bg-indigo-600 text-white border-none hover:bg-indigo-500"
-                        onClick={handlePost}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
 
               {/* Posts Feed */}
               <div className="space-y-6">

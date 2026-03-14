@@ -102,6 +102,8 @@ const Signup = ({ to }: SignupProps) => {
     timeoutRef.current = setTimeout(() => {
       setLoading(false);
 
+      localStorage.setItem("user", JSON.stringify({ email, firstName, lastName }));
+
       toast.current?.show({
         severity: "success",
         summary: "Account Created",
@@ -152,21 +154,25 @@ const Signup = ({ to }: SignupProps) => {
           )}
 
           {/* Date of Birth */}
-          <InputText
-            type="date"
-            value={dob}
-            onChange={(e) => setDob(e.target.value)}
-            className="w-full p-3 rounded-xl border border-zinc-200 dark:border-zinc-700 mt-4"
-          />
+          <div className="mt-4">
+            <InputText
+              type="date"
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+              className="w-full p-3 rounded-xl border border-zinc-200 dark:border-zinc-700"
+            />
+          </div>
           {dobError && <p className="text-red-500 text-sm mt-1">{dobError}</p>}
 
           {/* Email */}
-          <InputText
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            className="w-full p-3 rounded-xl border border-zinc-200 dark:border-zinc-700 mt-4"
-          />
+          <div className="mt-4">
+            <InputText
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              className="w-full p-3 rounded-xl border border-zinc-200 dark:border-zinc-700"
+            />
+          </div>
           {emailError && (
             <p className="text-red-500 text-sm mt-1">{emailError}</p>
           )}
@@ -252,7 +258,7 @@ const Signup = ({ to }: SignupProps) => {
           <Button
             disabled={loading}
             onClick={handleSignUp}
-            className="w-full mt-5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 border-none text-white font-semibold py-3"
+            className="w-full mt-5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 border-none text-white font-semibold py-3 flex justify-center"
           >
             {loading ? <i className="pi pi-spin pi-spinner"></i> : "Sign Up"}
           </Button>

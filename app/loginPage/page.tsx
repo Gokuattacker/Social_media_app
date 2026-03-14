@@ -91,6 +91,8 @@ const Login = ({ to }: LoginProps) => {
         localStorage.removeItem("rememberMe");
       }
 
+      localStorage.setItem("user", JSON.stringify({ email }));
+
       toast.current?.show({
         severity: "success",
         summary: "Login Successful",

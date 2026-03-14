@@ -37,10 +37,10 @@ const Sidebar = () => {
   const menuItems = [
     { label: "Home", path: "/feedPage" },
     { label: "Explore", path: "/explorePage" },
-    { label: "Create Post", path: "/feedPage" },
+    { label: "Create Post", path: "/createpostPage" },
     { label: "Messages", path: "/messagePage" },
     { label: "Notifications", path: "/notificationPage" },
-    { label: "Profile", path: "/profilePage" },
+    //{ label: "Profile", path: "/profilePage" },
     { label: "Settings", path: "/settingsPage" },
     { label: "Logout", path: "/logout" },
   ];
