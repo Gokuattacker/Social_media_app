@@ -51,7 +51,7 @@ const Signup = ({ to }: SignupProps) => {
     };
   }, []);
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     setFirstNameError("");
     setLastNameError("");
     setDobError("");
@@ -99,10 +99,28 @@ const Signup = ({ to }: SignupProps) => {
 
     setLoading(true);
 
-    timeoutRef.current = setTimeout(() => {
+    try {
+      const username = `${firstName.toLowerCase().replace(/\s+/g, '')}${lastName.toLowerCase().replace(/\s+/g, '')}${Math.floor(Math.random() * 1000)}`;
+      
+      const response = await fetch("http://localhost:8000/api/auth/register/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, username }),
+      });
+
       setLoading(false);
 
-      localStorage.setItem("user", JSON.stringify({ email, firstName, lastName }));
+      if (!response.ok) {
+        const errData = await response.json();
+        setAuthError(errData.detail || errData.username?.[0] || errData.email?.[0] || "Registration failed");
+        return;
+      }
+
+      const data = await response.json();
+
+      localStorage.setItem("accessToken", data.access);
+      localStorage.setItem("refreshToken", data.refresh);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       toast.current?.show({
         severity: "success",
@@ -112,7 +130,10 @@ const Signup = ({ to }: SignupProps) => {
       });
 
       router.push(to || "/feedPage");
-    }, 1500);
+    } catch (error) {
+      setLoading(false);
+      setAuthError("Network error. Please try again later.");
+    }
   };
 
   const signUpOnEnterKeyPress = (event: React.KeyboardEvent) => {

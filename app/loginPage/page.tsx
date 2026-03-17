@@ -55,7 +55,7 @@ const Login = ({ to }: LoginProps) => {
     };
   }, []);
 
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     setUsernameError("");
     setPasswordError("");
     setAuthError("");
@@ -79,9 +79,22 @@ const Login = ({ to }: LoginProps) => {
 
     setLoading(true);
 
-    // Fake Login Simulation (No API)
-    timeoutRef.current = setTimeout(() => {
+    try {
+      const response = await fetch("http://localhost:8000/api/auth/login/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
       setLoading(false);
+
+      if (!response.ok) {
+        const errData = await response.json();
+        setAuthError(errData.detail || "Invalid credentials");
+        return;
+      }
+
+      const data = await response.json();
 
       if (checked) {
         localStorage.setItem("rememberedEmail", email);
@@ -91,7 +104,9 @@ const Login = ({ to }: LoginProps) => {
         localStorage.removeItem("rememberMe");
       }
 
-      localStorage.setItem("user", JSON.stringify({ email }));
+      localStorage.setItem("accessToken", data.access);
+      localStorage.setItem("refreshToken", data.refresh);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       toast.current?.show({
         severity: "success",
@@ -102,7 +117,10 @@ const Login = ({ to }: LoginProps) => {
 
       // Redirect after login
       router.push(to || "/feedPage");
-    }, 1500);
+    } catch (error) {
+      setLoading(false);
+      setAuthError("Network error. Please try again later.");
+    }
   };
 
   const signInOnEnterKeyPress = (event: React.KeyboardEvent) => {
